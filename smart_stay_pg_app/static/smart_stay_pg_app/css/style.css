@@ -1,0 +1,209 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+  
+    /* BACKGROUND IMAGE */
+    background:url("../image/background.png");
+  
+    background-size: cover;        /* Fill full screen */
+    background-position: center;   /* Center image */
+    background-repeat: no-repeat;  /* No repeat */
+    background-attachment: fixed;  /* Smooth scrolling */
+  
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  
+  /* NAV */
+  .nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    padding:15px 30px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+  }
+  
+  .logo{
+    font-size:24px;
+    font-weight:700;
+  }
+  .logo span{color:#38bdf8}
+  
+  nav a{
+    color:white;
+    margin:0 12px;
+    text-decoration:none;
+  }
+  
+  .admin{
+    background:#38bdf8;
+    color:black;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:600;
+  }
+  
+  /* HERO */
+  .hero{
+    height:100vh;
+    /*background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),*/
+    url() center/cover;
+    display:flex;
+    align-items:center;
+    padding-left:10%;
+  }
+  .hero h1{
+    font-size:60px;
+  }
+  .hero h1 span{
+    color:#38bdf8;
+  }
+  .cta{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    background:#38bdf8;
+    color:black;
+    border-radius:40px;
+    text-decoration:none;
+  }
+  
+  /* ROOMS */
+  .rooms{
+    padding:60px;
+    text-align:center;
+  }
+  .room-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:40px;
+  }
+  .room{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    cursor:pointer;
+  }
+  .room img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    transition:.4s;
+  }
+  .room:hover img{
+    transform:scale(1.1);
+  }
+  .overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+    text-align:left;
+  }
+  .overlay span{
+    font-size:22px;
+    color:#38bdf8;
+  }
+  
+  /* GLASS */
+  .glass{
+    margin:80px;
+    padding:60px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    text-align:center;
+  }
+  
+  /* REVIEWS */
+  .testimonials{
+    text-align:center;
+    padding:60px;
+  }
+  .slide{
+    display:none;
+    font-size:18px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    width:350px;
+    margin:auto;
+  }
+  .slide.active{
+    display:block;
+  }
+  
+  
+  /* CONTACT */
+  .contact{
+    text-align:center;
+    padding:50px;
+  }
+  .icons a{
+    font-size:30px;
+    margin:10px;
+    color:#38bdf8;
+  }
+  .whatsapp{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#25D366;
+    color:white;
+    font-size:28px;
+    padding:15px;
+    border-radius:50%;
+    z-index:999;
+  }
+  
+  
+  /* FOOTER */
+  footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+  }
+  
+  .stats{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:-80px;
+  }
+  .stat{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:180px;
+  }
+  .stat h3{
+    font-size:36px;
+    color:#38bdf8;
+  }
+  .amenities{
+    margin-top:10px;
+  }
+  .amenities i{
+    margin-right:10px;
+    color:#38bdf8;
+  }
+  

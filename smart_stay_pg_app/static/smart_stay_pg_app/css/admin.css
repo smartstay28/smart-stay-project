@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: #121212;
+    color: #fff;
+    display: flex;
+  }
+  
+  /* SIDEBAR */
+  .sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #000;
+    padding: 20px;
+    position: fixed;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00ffcc;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar ul li {
+    padding: 12px;
+    margin: 8px 0;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .sidebar ul li:hover,
+  .sidebar ul li.active {
+    background: #1f1f1f;
+    color: #00ffcc;
+  }
+  
+  /* MAIN */
+  .main {
+    margin-left: 260px;
+    padding: 25px;
+    width: calc(100% - 260px);
+  }
+  
+  .header {
+    background: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    color: #00ffcc;
+    margin-bottom: 15px;
+  }
+  
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    border: 1px solid #333;
+    padding: 10px;
+  }
+  
+  /* FORM */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  button {
+    background: #00ffcc;
+    color: #000;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #00ccaa;
+  }
+  
+  /* SECTIONS */
+  .section {
+    display: none;
+  }
+  
+  #dashboard {
+    display: block;
+  }
+  

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="vehicle.css">
+</head>
+<body>
+
+  <h1>🔐 Admin Panel - Manage Vehicles</h1>
+
+  <div class="container">
+    <label>Vehicle</label>
+    <select id="adminVehicle">
+      <option value="Bike">Bike</option>
+      <option value="Car">Car</option>
+      <option value="Scooter">Scooter</option>
+    </select>
+
+    <label>Availability</label>
+    <select id="availability">
+      <option value="Available">Available</option>
+      <option value="Not Available">Not Available</option>
+    </select>
+
+    <button onclick="updateAvailability()">Update</button>
+
+    <p id="adminResult"></p>
+  </div>
+
+  <script src="vehicle.js"></script>
+</body>
+</html>

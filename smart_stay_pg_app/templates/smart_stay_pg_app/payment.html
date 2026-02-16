@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>PG Payment</title>
-    <link rel="stylesheet" href="payment.css">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
@@ -12,31 +13,31 @@
     <h2>PG Room Payment</h2>
 
     <div class="booking-details">
-        <p><strong>Room:</strong> Deluxe Room</p>
-        <p><strong>Amount:</strong> ₹5000</p>
+        <p><strong>Room:</strong> {{ room_name }}</p>
+        <p><strong>Amount:</strong> ₹<span id="amount">{{ amount }}</span></p>
     </div>
 
     <h3>Select Payment Method</h3>
 
     <div class="payment-options">
         <label>
-            <input type="radio" name="payment_method" value="cod">
+            <input type="radio" name="payment_method" value="COD">
             Cash on Delivery (COD)
         </label>
 
         <label>
-            <input type="radio" name="payment_method" value="online">
+            <input type="radio" name="payment_method" value="Razorpay">
             Pay Online (Razorpay)
         </label>
     </div>
 
-    <button onclick="processPayment()">Pay Now</button>
+    <button id="payBtn">Pay Now</button>
 
     <p id="payment-status"></p>
 
 </div>
 
-<script src="payment.js"></script>
+<script src="{% static 'js/payment.js' %}"></script>
 
 </body>
 </html>

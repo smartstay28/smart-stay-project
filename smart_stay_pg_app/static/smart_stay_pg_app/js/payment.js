@@ -1,56 +1,111 @@
-function processPayment() {
+document.getElementById("payBtn").addEventListener("click", processPayment);
+
+function getCSRFToken() {
+    return document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+}
+
+async function processPayment() {
 
     let method = document.querySelector('input[name="payment_method"]:checked');
+    let amount = document.getElementById("amount").innerText;
+    let statusText = document.getElementById("payment-status");
 
     if (!method) {
         alert("Please select payment method");
         return;
     }
 
-    if (method.value === "cod") {
-        document.getElementById("payment-status").innerText =
-            "Order placed successfully! Payment mode: COD";
-        
-        // Send AJAX to backend
-        fetch("/save-payment/", {
+    // ================= COD =================
+    if (method.value === "COD") {
+
+        const response = await fetch("/save-payment/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "X-CSRFToken": getCSRFToken()
             },
             body: JSON.stringify({
                 status: "pending",
-                method: "COD"
+                method: "COD",
+                amount: amount
             })
         });
 
-    } else {
+        const data = await response.json();
 
+        if (data.status === "success") {
+            statusText.innerText = "Order placed successfully! Payment mode: COD";
+            statusText.style.color = "green";
+        } else {
+            statusText.innerText = "Something went wrong!";
+            statusText.style.color = "red";
+        }
+
+    }
+
+    // ================= RAZORPAY =================
+    else {
+
+        // 1️⃣ Create order from backend
+        const orderResponse = await fetch("/create-order/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": getCSRFToken()
+            },
+            body: JSON.stringify({ amount: amount })
+        });
+
+        const orderData = await orderResponse.json();
+
+        if (!orderData.order_id) {
+            alert("Order creation failed");
+            return;
+        }
+
+        // 2️⃣ Razorpay Options
         var options = {
-            "key": "YOUR_RAZORPAY_KEY",
-            "amount": 5000 * 100,
+            "key": orderData.key,
+            "amount": orderData.amount,
             "currency": "INR",
-            "name": "PG Management",
+            "name": "PG Management System",
             "description": "Room Booking Payment",
-            "handler": function (response){
-                
-                document.getElementById("payment-status").innerText =
-                    "Payment Successful! Payment ID: " + response.razorpay_payment_id;
+            "order_id": orderData.order_id,
 
-                fetch("/save-payment/", {
+            "handler": async function (response) {
+
+                // 3️⃣ Verify Payment on Backend
+                const verifyResponse = await fetch("/verify-payment/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "X-CSRFToken": getCSRFToken()
                     },
                     body: JSON.stringify({
-                        status: "paid",
-                        method: "Razorpay",
-                        payment_id: response.razorpay_payment_id
+                        razorpay_order_id: response.razorpay_order_id,
+                        razorpay_payment_id: response.razorpay_payment_id,
+                        razorpay_signature: response.razorpay_signature,
+                        amount: amount
                     })
                 });
+
+                const verifyData = await verifyResponse.json();
+
+                if (verifyData.status === "success") {
+                    statusText.innerText = "Payment Successful! Payment ID: " + response.razorpay_payment_id;
+                    statusText.style.color = "green";
+                } else {
+                    statusText.innerText = "Payment verification failed!";
+                    statusText.style.color = "red";
+                }
+            },
+
+            "theme": {
+                "color": "#3399cc"
             }
         };
 
-        var rzp1 = new Razorpay(options);
-        rzp1.open();
+        var rzp = new Razorpay(options);
+        rzp.open();
     }
 }

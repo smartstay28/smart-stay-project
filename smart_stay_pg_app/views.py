@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+import json
 
-# Create your views here.
+def save_payment(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        # Save to database
+        print(data)
+
+        return JsonResponse({"status": "success"})

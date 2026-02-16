@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PG Payment</title>
+    <link rel="stylesheet" href="payment.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<div class="payment-container">
+
+    <h2>PG Room Payment</h2>
+
+    <div class="booking-details">
+        <p><strong>Room:</strong> Deluxe Room</p>
+        <p><strong>Amount:</strong> ₹5000</p>
+    </div>
+
+    <h3>Select Payment Method</h3>
+
+    <div class="payment-options">
+        <label>
+            <input type="radio" name="payment_method" value="cod">
+            Cash on Delivery (COD)
+        </label>
+
+        <label>
+            <input type="radio" name="payment_method" value="online">
+            Pay Online (Razorpay)
+        </label>
+    </div>
+
+    <button onclick="processPayment()">Pay Now</button>
+
+    <p id="payment-status"></p>
+
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+</html>

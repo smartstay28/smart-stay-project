@@ -1,0 +1,155 @@
+/* ================= Common Styles ================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    padding: 40px 50px;
+    border-radius: 20px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106,17,203,0.3);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    height: 90px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+.error {
+    color: #ff4d4d;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* ================= Links ================= */
+a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ================= Page-specific Styles ================= */
+
+/* ----- Select Role Page ----- */
+body.select-role {
+    background: linear-gradient(135deg, #ff6a88, #ff99ac);
+}
+
+body.select-role .card {
+    background: #ffe6e9;
+}
+
+body.select-role button {
+    background: #ff6a88;
+    color: white;
+}
+
+body.select-role button:hover {
+    background: #ff99ac;
+}
+
+/* ----- Registration Page ----- */
+body.registration {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+body.registration .card {
+    background: #e0f7fa;
+}
+
+body.registration button {
+    background: #43cea2;
+    color: white;
+}
+
+body.registration button:hover {
+    background: #185a9d;
+}
+
+/* ----- Login Page ----- */
+body.login {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+body.login .card {
+    background: #ffffff;
+}
+
+body.login button {
+    background: #2575fc;
+    color: white;
+}
+
+body.login button:hover {
+    background: #6a11cb;
+}
+
+/* ----- Welcome Page ----- */
+body.welcome {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+body.welcome .card {
+    background: #fff8e1;
+}
+
+body.welcome button {
+    background: #f7971e;
+    color: white;
+}
+
+body.welcome button:hover {
+    background: #ffd200;
+}

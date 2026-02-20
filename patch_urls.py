@@ -1,4 +1,8 @@
-"""
+import pathlib
+
+path = pathlib.Path(r"c:\Users\JAINAM\OneDrive\Desktop\smart-stay-project\smart_saty_pg\urls.py")
+
+new_content = '''"""
 URL configuration for smart_saty_pg project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -21,3 +25,7 @@ urlpatterns = [
     path('', include('smart_stay_pg_app.urls')),
     path('admin/', admin.site.urls),
 ]
+'''
+
+path.write_text(new_content, encoding='utf-8')
+print('urls.py rewritten')

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Role</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Select your role</h2>
+
+    <form method="get" action="{% url 'register' %}">
+        <select name="role" required>
+            <option value="">-- Select Role --</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <br><br>
+        <button type="submit">Continue</button>
+    </form>
+</body>
+</html>

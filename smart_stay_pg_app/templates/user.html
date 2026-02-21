@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Panel</title>
+
+<link rel="stylesheet" href="../static/css/user.css">
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<div class="dashboard">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <h2 class="logo">User Panel</h2>
+  <ul>
+    <li onclick="loadRooms()">Book Room</li>
+    <li onclick="loadVehicles()">Book Vehicle</li>
+    <li onclick="loadProfile()">Edit Profile</li>
+    <li onclick="loadInbox()">Inbox</li>
+    <li onclick="loadComplaint()">Register Complaint</li>
+    <li onclick="loadFeedback()">Feedback</li>
+  </ul>
+</aside>
+
+<!-- CONTENT -->
+<main class="content" id="content-area">
+  <h1>Welcome 👋</h1>
+  <p>Select an option from the menu</p>
+</main>
+
+</div>
+
+<script src="../static/js/user.js"></script>
+</body>
+</html>
